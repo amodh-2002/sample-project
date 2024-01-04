@@ -1,0 +1,36 @@
+import React from 'react';
+import { Link } from "react-scroll";
+import Logo from "../assets/images/logo.png";
+
+const Navbar = () => {
+  return (
+    <div className='fixed w-full h-[80px] flex justify-around items-center px-4 bg-[#0a192f] text-gray-300'>
+      {/* logo  */}
+      <div style={{ cursor: "pointer" }} className="logo">
+        <Link to='' smooth={true} duration={500}>
+          <img className='w-[80px]' src={Logo} alt="Logo" />
+        </Link>
+      </div>
+      {/* menu  */}
+      <ul>
+        <div className='flex justify-between items-center gap-6'>
+          {[
+            { label: 'Home', to: 'home' },
+            { label: 'Services', to: 'about' },
+            { label: 'Projects', to: 'skills' },
+            { label: 'About', to: 'work' },
+            { label: 'Video', to: 'contact' },
+            { label: 'Contact', to: 'contact' },
+            { label: 'Landing', to: 'contact' }
+          ].map((item, index) => (
+            <li key={index}>
+              <Link style={{ cursor: "pointer" }} to={item.to} smooth={true} duration={500}>{item.label}</Link>
+            </li>
+          ))}
+        </div>
+      </ul>
+    </div>
+  );
+};
+
+export default Navbar;
